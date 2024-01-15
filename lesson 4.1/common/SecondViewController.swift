@@ -8,22 +8,32 @@
 import UIKit
 
 class SecondViewController: UIViewController {
+    
+    private var secondPageImg: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(named: "yes")
+        img.contentMode = .scaleAspectFill
+        img.translatesAutoresizingMaskIntoConstraints = false
+        return img
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupSecondPageImg()
+        
+        GradientHelper.setupGradientBackground(for: view)
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupSecondPageImg() {
+        view.addSubview(secondPageImg)
+        
+        NSLayoutConstraint.activate([
+            secondPageImg.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            secondPageImg.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
-    */
 
 }
